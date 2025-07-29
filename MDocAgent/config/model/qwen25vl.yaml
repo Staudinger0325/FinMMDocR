@@ -1,0 +1,7 @@
+defaults:
+  - base
+  - _self_
+
+model_id: qwen/qwen2.5-vl-72b-instruct
+module_name: models.qwen
+class_name: Qwen2_5VL

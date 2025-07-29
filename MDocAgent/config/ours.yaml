@@ -1,0 +1,18 @@
+defaults:
+  - base
+  - dataset: ours
+  - _self_
+
+run-name: ours-MDocAgent
+
+mdoc_agent:
+  agents:
+    - agent: image_agent
+      model: myopenai_qwen25vl
+    - agent: text_agent
+      model: myopenai_qwen25vl
+    - agent: general_agent
+      model: myopenai_qwen25vl
+  sum_agent:
+    agent: sum_agent
+    model: myopenai_qwen25vl

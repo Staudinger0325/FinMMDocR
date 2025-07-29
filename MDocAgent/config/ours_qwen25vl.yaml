@@ -1,0 +1,25 @@
+defaults:
+  - base
+  - dataset: ours
+  - _self_
+
+run-name: ours-MDocAgent-Qwen25VL
+
+mdoc_agent:
+  cuda_visible_devices: '0,1,2,3'
+  truncate_len: null # Used for debugging; set to null for normal use
+  save_freq: 10 # Frequency of saving checkpoints
+  ans_key: ans_${run-name} # Key name for generated answers during prediction
+  save_message: false # Set to true to record responses from all agents
+
+  agents:
+    - agent: image_agent # Configures prompt and controls whether to use text/image as reference material
+      model: qwen25vl # Configures the model to use
+    - agent: text_agent
+      model: qwen25vl  # 改为使用Qwen2.5-VL-7B-Instruct
+    - agent: general_agent
+      model: qwen25vl  # 也改为使用Qwen2.5-VL-7B-Instruct
+  
+  sum_agent:
+    agent: sum_agent # Responsible for summarizing answers from all agents
+    model: qwen25vl  # 也改为使用Qwen2.5-VL-7B-Instruct 

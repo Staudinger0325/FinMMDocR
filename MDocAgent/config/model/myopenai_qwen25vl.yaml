@@ -1,0 +1,10 @@
+defaults:
+  - base
+  - _self_
+
+model: doubao-1.5-vision-pro-250328
+api_key: 
+base_url: https://ark.cn-beijing.volces.com/api/v3
+module_name: models.openai
+class_name: MyOpenAI
+max_new_tokens: 8192
